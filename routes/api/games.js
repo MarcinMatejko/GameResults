@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 const Game = require('../../models/Game');
@@ -9,6 +10,7 @@ const Game = require('../../models/Game');
 // @access  Public
 router.post(
   '/',
+  auth,
   [
     check('title', 'Tytuł gry jest wymagany').not().isEmpty(),
     check('minPlayers', 'Podaj minimalną ilość graczy. Minimum 1').isInt({
@@ -51,5 +53,9 @@ router.post(
     }
   }
 );
+
+// @route   DELETE api/games
+// @desc    Delete a game
+// @access  Private
 
 module.exports = router;
