@@ -54,8 +54,40 @@ router.post(
   }
 );
 
-// @route   DELETE api/games
+// @route   GET api/games/
+// @desc    Get all games
+// @access  Private
+
+router.get('/', auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  try {
+    const games = await Game.find();
+
+    return res.status(200).json({
+      data: games,
+    });
+  } catch (err) {
+    return res.status(500).json('Server Error');
+  }
+});
+
+// @route   DELETE api/games/:id
 // @desc    Delete a game
 // @access  Private
+
+router.delete('/:id', auth, async (req, res) => {
+  const game = await Game.findById(req.data.id);
+
+  try {
+    await game.remove();
+    res.json('Gra usunięta');
+  } catch (err) {
+    return res.status(500).json('Server Error');
+  }
+});
 
 module.exports = router;
