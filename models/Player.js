@@ -9,6 +9,10 @@ const PlayerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  age: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = Player = mongoose.model('player', PlayerSchema);

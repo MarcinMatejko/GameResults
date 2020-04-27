@@ -21,6 +21,10 @@ router.post(
       allow_leading_zeroes: false,
       gt: 1,
     }),
+    check('minAge', 'Podaj minimalny wiek dla gracza. Mimimum 1').isInt({
+      allow_leading_zeroes: false,
+      gt: 1,
+    }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -28,7 +32,7 @@ router.post(
       return res.status(422).json({ errors: errors.array() });
     }
 
-    const { title, minPlayers, maxPlayers } = req.body;
+    const { title, minPlayers, maxPlayers, minAge } = req.body;
 
     try {
       let game = await Game.findOne({ title });
@@ -43,6 +47,7 @@ router.post(
         title,
         minPlayers,
         maxPlayers,
+        minAge,
       });
 
       await game.save();
@@ -80,13 +85,27 @@ router.get('/', auth, async (req, res) => {
 // @access  Private
 
 router.delete('/:id', auth, async (req, res) => {
-  const game = await Game.findById(req.data.id);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
   try {
+    let game = await Game.findById({ _id: req.params.id });
+
+    if (!game) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: `Dana gra nie istnieje.` }] });
+    }
+    const { title } = game;
+
     await game.remove();
-    res.json('Gra usunięta');
+
+    return res.status(200).json({ msg: `Gra ${title} usunięta` });
   } catch (err) {
-    return res.status(500).json('Server Error');
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
   }
 });
 

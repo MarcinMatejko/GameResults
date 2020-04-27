@@ -13,6 +13,10 @@ const GameSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  minAge: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = Game = mongoose.model('game', GameSchema);
