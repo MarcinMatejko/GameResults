@@ -22,12 +22,12 @@ const UserSchema = new mongoose.Schema({
     default: Date.now(),
   },
   games: {
-    type: Array,
-    default: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'game',
   },
   players: {
-    type: Array,
-    default: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'player',
   },
 });
 

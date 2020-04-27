@@ -11,7 +11,7 @@ const PlayerSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 
