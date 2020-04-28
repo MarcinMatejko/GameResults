@@ -179,23 +179,6 @@ router.delete('/players/:player_id', auth, async (req, res) => {
     await user.save();
 
     res.json(user);
-
-    // const user = await User.findById({ _id: req.user.id });
-    // const player = user.players.find((player) => player.id === req.params.id);
-
-    // if (!player) {
-    //   return res.status(404).json({ msg: 'Dany gracz nie istnieje.' });
-    // }
-
-    // const removeIndex = user.players
-    //   .map((player) => player.id.toString())
-    //   .indexOf(req.player.id);
-
-    // user.players.splice(removeIndex, 1);
-
-    // await user.save();
-
-    // res.json({ msg: 'Gracz usunięty' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Błąd serwera');
