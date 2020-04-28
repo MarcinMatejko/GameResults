@@ -76,7 +76,7 @@ router.get('/', auth, async (req, res) => {
       data: games,
     });
   } catch (err) {
-    return res.status(500).json('Server Error');
+    return res.status(500).json('Błąd serwera');
   }
 });
 

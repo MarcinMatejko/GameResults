@@ -27,7 +27,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, players } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -49,6 +49,7 @@ router.post(
         email,
         avatar,
         password,
+        players,
       });
 
       const salt = await bcrypt.genSalt(10);
@@ -93,6 +94,108 @@ router.delete('/', auth, async (req, res) => {
     await User.findOneAndRemove({ _id: req.user.id });
 
     return res.status(200).json({ msg: 'Użytkownik usunięty' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
+  }
+});
+
+// @route   POST api/users/players
+// @desc    Add a player
+// @access  Private
+
+router.post(
+  '/players',
+  [auth, [check('playerName', 'Imię gracza jest wymagane').not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const user = await User.findById({ _id: req.user.id });
+
+      const newPlayer = {
+        playerName: req.body.playerName,
+        age: req.body.age,
+        color: req.body.color,
+      };
+
+      user.players.unshift(newPlayer);
+
+      await user.save();
+
+      res.status(201).send(`Utworzono gracza ${req.body.playerName}`);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Błąd serwera');
+    }
+  }
+);
+
+// @route   GET api/users/players
+// @desc    Get all players of a user
+// @access  Private
+
+router.get('/players', auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  try {
+    const user = await User.findById({ _id: req.user.id });
+
+    if (user.players.length === 0) {
+      return res
+        .status(404)
+        .json({ msg: 'Ten użytkownik nie posiada żadnych graczy.' });
+    }
+    res.status(200).json(user.players);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
+  }
+});
+
+// @route   DELETE api/users/players/:player_id
+// @desc    Delete a player
+// @access  Private
+
+router.delete('/players/:player_id', auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  try {
+    const user = await User.findById({ _id: req.user.id });
+
+    const removeIndex = user.players
+      .map((item) => item.id)
+      .indexOf(req.params.player_id);
+
+    user.players.splice(removeIndex, 1);
+
+    await user.save();
+
+    res.json(user);
+
+    // const user = await User.findById({ _id: req.user.id });
+    // const player = user.players.find((player) => player.id === req.params.id);
+
+    // if (!player) {
+    //   return res.status(404).json({ msg: 'Dany gracz nie istnieje.' });
+    // }
+
+    // const removeIndex = user.players
+    //   .map((player) => player.id.toString())
+    //   .indexOf(req.player.id);
+
+    // user.players.splice(removeIndex, 1);
+
+    // await user.save();
+
+    // res.json({ msg: 'Gracz usunięty' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Błąd serwera');

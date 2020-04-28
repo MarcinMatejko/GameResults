@@ -25,10 +25,20 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'game',
   },
-  players: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'player',
-  },
+  players: [
+    {
+      playerName: {
+        type: String,
+        required: true,
+      },
+      age: {
+        type: Number,
+      },
+      color: {
+        type: String,
+      },
+    },
+  ],
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
