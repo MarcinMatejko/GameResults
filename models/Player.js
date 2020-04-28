@@ -1,17 +1,23 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const PlayerSchema = new mongoose.Schema({
+const PlayerSchema = new Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
+    type: Schema.Types.ObjectId,
+    ref: 'users',
   },
-  name: {
+  playerName: {
     type: String,
     required: true,
   },
+  userName: {
+    type: String,
+  },
   age: {
     type: Number,
-    required: false,
+  },
+  color: {
+    type: String,
   },
 });
 
