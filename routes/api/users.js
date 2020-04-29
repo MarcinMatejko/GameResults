@@ -170,15 +170,12 @@ router.delete('/players/:player_id', auth, async (req, res) => {
   try {
     const user = await User.findById({ _id: req.user.id });
 
-    const removeIndex = user.players
-      .map((item) => item.id)
-      .indexOf(req.params.player_id);
-
-    user.players.splice(removeIndex, 1);
+    user.players = user.players.filter(
+      (player) => player._id.toString() !== req.params.player_id
+    );
 
     await user.save();
-
-    res.json(user);
+    return res.status(200).json(user);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Błąd serwera');
