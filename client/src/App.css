@@ -128,6 +128,11 @@ body {
 .navbar ul {
   display: flex;
   align-items: center;
+  list-style: none;
+}
+
+.navbar ul li {
+  padding: 0 1rem;
 }
 
 .landing {
