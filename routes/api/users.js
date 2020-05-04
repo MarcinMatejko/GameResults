@@ -80,6 +80,24 @@ router.post(
   }
 );
 
+// @route   GET api/users/me
+// @desc    Get Current User
+// @access  Private
+
+router.get('/me', auth, async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+
+    if (!user) {
+      return res.status(400).json({ msg: 'Nie ma takiego użytkownika' });
+    }
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
+  }
+});
+
 // @route   DELETE api/users
 // @desc    Delete User
 // @access  Private
