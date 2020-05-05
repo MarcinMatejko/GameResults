@@ -6,7 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
-import CreatePlayer from './components/profile-forms/CreatePlayer';
+import Players from './components/players/Players';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -36,11 +36,8 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
-              <PrivateRoute
-                exact
-                path='/create-player'
-                component={CreatePlayer}
-              />
+
+              <PrivateRoute exact path='/players' component={Players} />
             </Switch>
           </section>
         </Fragment>

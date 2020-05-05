@@ -10,3 +10,7 @@ export const LOGOUT = 'LOGOUT';
 export const GET_PROFILE = 'GET_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const GET_PLAYERS = 'GET_PLAYERS';
+export const PLAYER_ERROR = 'PLAYER_ERROR';
+export const DELETE_PLAYER = 'DELETE_PLAYER';
+export const ADD_PLAYER = 'ADD_PLAYER';
