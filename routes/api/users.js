@@ -144,7 +144,10 @@ router.post(
 
       await user.save();
 
-      res.status(201).send(`Utworzono gracza ${req.body.playerName}`);
+      res
+        .status(201)
+        .json(newPlayer)
+        .send(`Utworzono gracza ${req.body.playerName}`);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Błąd serwera');
