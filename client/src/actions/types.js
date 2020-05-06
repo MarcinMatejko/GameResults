@@ -14,3 +14,7 @@ export const GET_PLAYERS = 'GET_PLAYERS';
 export const PLAYER_ERROR = 'PLAYER_ERROR';
 export const DELETE_PLAYER = 'DELETE_PLAYER';
 export const ADD_PLAYER = 'ADD_PLAYER';
+export const ADD_GAME = 'ADD_GAME';
+export const DELETE_GAME = 'DELETE_GAME';
+export const GAME_ERROR = 'GAME_ERROR';
+export const GET_GAMES = 'GET_GAMES';

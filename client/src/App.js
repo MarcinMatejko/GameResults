@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Players from './components/players/Players';
+import Games from './components/games/Games';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -38,6 +39,7 @@ const App = () => {
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
 
               <PrivateRoute exact path='/players' component={Players} />
+              <PrivateRoute exact path='/games' component={Games} />
             </Switch>
           </section>
         </Fragment>

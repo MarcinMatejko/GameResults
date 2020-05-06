@@ -7,7 +7,6 @@ import {
 
 const initialState = {
   players: [],
-  player: null,
   loading: true,
   error: {},
 };

@@ -20,16 +20,9 @@ const Dashboard = ({
     <Fragment>
       <h1>Dashoard</h1>
       <p>Cześć, {user && user.name}</p>
-
-      <p>Nie posiadasz żadnych graczy.</p>
-      <Link to='/create-player' className='btn btn-primary'>
-        Stwórz gracza
+      <Link to='/players' className='btn btn-primary'>
+        Moi gracze
       </Link>
-      {/* {user.players.length === 0 ? (
-        <Fragment>Twoi gracze to:</Fragment>
-      ) : (
-        <Fragment>Nie masz żadnych graczy</Fragment>
-      )} */}
     </Fragment>
   );
 };
