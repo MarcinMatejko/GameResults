@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   players: [],
+  player: null,
   loading: true,
   error: {},
 };
@@ -24,7 +25,7 @@ export default function (state = initialState, action) {
     case ADD_PLAYER:
       return {
         ...state,
-        players: [...state.players, payload],
+        players: [payload, ...state.players],
         loading: false,
       };
     case DELETE_PLAYER:

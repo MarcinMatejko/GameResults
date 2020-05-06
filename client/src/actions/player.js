@@ -22,7 +22,7 @@ export const getPlayers = () => async (dispatch) => {
 // Delete player
 export const deletePlayer = (id) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/users/players/${id}`);
+    await axios.delete(`/api/users/players/${id}`);
 
     dispatch({
       type: DELETE_PLAYER,
@@ -59,5 +59,6 @@ export const addPlayer = (formData) => async (dispatch) => {
       type: PLAYER_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+    dispatch(setAlert('Wyniknął błąd', 'danger'));
   }
 };
