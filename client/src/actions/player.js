@@ -53,7 +53,7 @@ export const addPlayer = (formData) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert('Dodano Gracza', 'success'));
+    dispatch(setAlert(`Dodano Gracza ${res.data.playerName}`, 'success'));
   } catch (err) {
     dispatch({
       type: PLAYER_ERROR,
