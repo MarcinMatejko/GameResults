@@ -146,7 +146,7 @@ router.post(
 
       res
         .status(201)
-        .json(newPlayer)
+        .json(user.players[0])
         .send(`Utworzono gracza ${req.body.playerName}`);
     } catch (err) {
       console.error(err.message);
