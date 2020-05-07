@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import GameItem from './GameItem';
+import GameForm from './GameForm';
 import Spinner from '../layout/Spinner';
 import { getGames } from '../../actions/game';
 
@@ -32,6 +33,7 @@ const Games = ({ getGames, game: { games, loading } }) => {
           </div>
         </Fragment>
       )}
+      <GameForm />
 
       <Link className='btn btn-primary' to='dashboard'>
         Powrót

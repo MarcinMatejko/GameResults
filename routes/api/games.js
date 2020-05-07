@@ -51,7 +51,7 @@ router.post(
       });
 
       await game.save();
-      res.send(`Gra ${title} dodana do bazy`);
+      res.send(`Gra ${title} dodana do bazy`).json(game);
     } catch (err) {
       console.errorr(err.message);
       res.status(500).send('Błąd serwera');
@@ -72,7 +72,7 @@ router.get('/', auth, async (req, res) => {
   try {
     const games = await Game.find();
 
-    res.res.status(200).json(games);
+    res.status(200).json(games);
   } catch (err) {
     return res.status(500).json('Błąd serwera');
   }
