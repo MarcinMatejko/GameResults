@@ -72,9 +72,7 @@ router.get('/', auth, async (req, res) => {
   try {
     const games = await Game.find();
 
-    return res.status(200).json({
-      data: games,
-    });
+    res.res.status(200).json(games);
   } catch (err) {
     return res.status(500).json('Błąd serwera');
   }

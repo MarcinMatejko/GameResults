@@ -113,6 +113,8 @@ body {
 }
 
 .navbar {
+  background-color: var(--dark-color);
+  color: var(--primary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,10 +131,17 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
+  color: white;
 }
 
 .navbar ul li {
   padding: 0 1rem;
+  list-style: none;
+}
+
+a {
+  color: var(--light-color);
+  text-decoration: none;
 }
 
 .landing {

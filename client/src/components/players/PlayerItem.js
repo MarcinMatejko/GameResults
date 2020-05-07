@@ -10,15 +10,25 @@ const PlayerItem = ({
 }) => (
   <div
     className='player'
-    style={{ border: 'solid 1px #333', margin: '1rem', padding: '1rem' }}
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      border: 'solid 1px #333',
+      margin: '1rem 0',
+      padding: '1rem',
+      width: '600px',
+    }}
   >
-    <h2>Imię: {playerName}</h2>
-    <p>Wiek: {age}</p>
-    <p>Kolor: {color}</p>
+    <div>
+      <h2>Imię: {playerName}</h2>
+      <p>Wiek: {age}</p>
+      <p>Kolor: {color}</p>
+    </div>
     <button
       onClick={(e) => deletePlayer(_id)}
       type='button'
       className='btn btn-danger'
+      style={{ height: '2rem' }}
     >
       Usuń gracza
     </button>

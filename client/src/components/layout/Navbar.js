@@ -14,6 +14,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Link to='/players'>Gracze</Link>
       </li>
       <li>
+        <Link to='/games'>Gry</Link>
+      </li>
+      <li>
         <a onClick={logout} href='#!'>
           Wyloguj
         </a>

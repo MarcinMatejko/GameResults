@@ -22,7 +22,7 @@ const PlayerForm = ({ addPlayer }) => {
 
   return (
     <Fragment>
-      <h1>Dodaj nowego gracza</h1>
+      <h3>Dodaj nowego gracza</h3>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
@@ -51,7 +51,12 @@ const PlayerForm = ({ addPlayer }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Dodaj gracza' />
+        <input
+          style={{ margin: '1rem 0' }}
+          type='submit'
+          className='btn btn-primary'
+          value='Dodaj gracza'
+        />
       </form>
     </Fragment>
   );

@@ -17,13 +17,32 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
-    <Fragment>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: '1rem',
+        padding: '1rem',
+      }}
+    >
       <h1>Dashoard</h1>
       <p>Cześć, {user && user.name}</p>
-      <Link to='/players' className='btn btn-primary'>
-        Moi gracze
+      <Link
+        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
+        to='/players'
+        className='btn btn-primary'
+      >
+        Lista Graczy
       </Link>
-    </Fragment>
+      <Link
+        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
+        to='/games'
+        className='btn btn-primary'
+      >
+        Lista Gier
+      </Link>
+    </div>
   );
 };
 
