@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addGame } from '../../actions/game';
+import { Link } from 'react-router-dom';
 
 const GameForm = ({ addGame }) => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ const GameForm = ({ addGame }) => {
             name='title'
             value={title}
             onChange={(e) => onChange(e)}
+            // required
           />
         </div>
         <div className='form-group'>
@@ -40,6 +42,7 @@ const GameForm = ({ addGame }) => {
             name='minPlayers'
             value={minPlayers}
             onChange={(e) => onChange(e)}
+            // required
           />
         </div>
         <div className='form-group'>
@@ -49,6 +52,7 @@ const GameForm = ({ addGame }) => {
             name='maxPlayers'
             value={maxPlayers}
             onChange={(e) => onChange(e)}
+            // required
           />
         </div>
         <div className='form-group'>
@@ -58,6 +62,7 @@ const GameForm = ({ addGame }) => {
             name='minAge'
             value={minAge}
             onChange={(e) => onChange(e)}
+            // required
           />
         </div>
         <input
@@ -67,6 +72,9 @@ const GameForm = ({ addGame }) => {
           value='Dodaj Grę'
         />
       </form>
+      <Link className='btn btn-primary' to='games'>
+        Powrót
+      </Link>
     </Fragment>
   );
 };

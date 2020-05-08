@@ -36,10 +36,34 @@ export const addGame = (formData) => async (dispatch) => {
 
     dispatch(setAlert(`Dodano nową grę: ${res.data.title}`, 'success'));
   } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+
     dispatch({
       type: GAME_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
-    dispatch(setAlert('Dodawanie gry nie powiodło się.', 'danger'));
+  }
+};
+
+// Delete game
+export const deleteGame = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/games/${id}`);
+
+    dispatch({
+      type: DELETE_GAME,
+      payload: id,
+    });
+
+    dispatch(setAlert('Gra usunięta', 'success'));
+  } catch (err) {
+    dispatch({
+      type: GAME_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
   }
 };

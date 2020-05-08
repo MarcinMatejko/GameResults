@@ -29,7 +29,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     const { title, minPlayers, maxPlayers, minAge } = req.body;
@@ -51,7 +51,7 @@ router.post(
       });
 
       await game.save();
-      res.send(`Gra ${title} dodana do bazy`).json(game);
+      res.json(game).send(`Gra ${title} dodana do bazy`);
     } catch (err) {
       console.errorr(err.message);
       res.status(500).send('Błąd serwera');

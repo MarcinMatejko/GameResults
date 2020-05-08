@@ -30,7 +30,7 @@ const PlayerItem = ({
       className='btn btn-danger'
       style={{ height: '2rem' }}
     >
-      Usuń gracza
+      Usuń Gracza
     </button>
   </div>
 );

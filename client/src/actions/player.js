@@ -31,6 +31,12 @@ export const deletePlayer = (id) => async (dispatch) => {
 
     dispatch(setAlert('Gracz usunięty', 'success'));
   } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+
     dispatch({
       type: PLAYER_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

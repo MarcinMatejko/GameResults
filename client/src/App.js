@@ -8,6 +8,7 @@ import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Players from './components/players/Players';
 import Games from './components/games/Games';
+import GameForm from './components/games/GameForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 // Redux
 import { Provider } from 'react-redux';
@@ -40,6 +41,7 @@ const App = () => {
 
               <PrivateRoute exact path='/players' component={Players} />
               <PrivateRoute exact path='/games' component={Games} />
+              <PrivateRoute exact path='/add-game' component={GameForm} />
             </Switch>
           </section>
         </Fragment>
