@@ -43,17 +43,20 @@ router.post(
           .json({ errors: [{ msg: 'Podany tytuł już istnieje.' }] });
       }
 
+      const user = await User.findById(req.user.id);
+
       game = new Game({
         title,
         minPlayers,
         maxPlayers,
         minAge,
+        user: req.user.id,
       });
 
       await game.save();
       res.json(game).send(`Gra ${title} dodana do bazy`);
     } catch (err) {
-      console.errorr(err.message);
+      console.error(err.message);
       res.status(500).send('Błąd serwera');
     }
   }

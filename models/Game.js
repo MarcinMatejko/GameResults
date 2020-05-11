@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const GameSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   title: {
     type: String,
     required: true,

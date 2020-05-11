@@ -21,10 +21,26 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  games: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'game',
-  },
+  userGames: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      minPlayers: {
+        type: Number,
+        required: true,
+      },
+      maxPlayers: {
+        type: Number,
+        required: true,
+      },
+      minAge: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
   players: [
     {
       playerName: {
