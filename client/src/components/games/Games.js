@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import GameItem from './GameItem';
 import Spinner from '../layout/Spinner';
 import { getGames } from '../../actions/game';
 
@@ -27,7 +26,29 @@ const Games = ({ getGames, game: { games, loading } }) => {
             }}
           >
             {games.map((game) => (
-              <GameItem key={game._id} game={game} />
+              <h3
+                style={{
+                  border: 'solid 1px green',
+                  padding: '0.5rem',
+                  margin: '0.5rem 0',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+                key={game._id}
+              >
+                {game.title}
+                <Link
+                  style={{
+                    margin: '1rem',
+                    textAlign: 'center',
+                  }}
+                  to={`/games/${game._id}`}
+                  className='btn btn-primary'
+                >
+                  Szczegóły
+                </Link>
+              </h3>
             ))}
           </div>
         </Fragment>

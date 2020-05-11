@@ -15,15 +15,15 @@ router.post(
     check('title', 'Tytuł gry jest wymagany').not().isEmpty(),
     check('minPlayers', 'Podaj minimalną ilość graczy. Minimum 1').isInt({
       allow_leading_zeroes: false,
-      gt: 1,
+      gt: 0,
     }),
     check('maxPlayers', 'Podaj maksymalną ilość graczy. Miminum 1').isInt({
       allow_leading_zeroes: false,
-      gt: 1,
+      gt: 0,
     }),
     check('minAge', 'Podaj minimalny wiek dla gracza. Mimimum 1').isInt({
       allow_leading_zeroes: false,
-      gt: 1,
+      gt: 0,
     }),
   ],
   async (req, res) => {
@@ -75,6 +75,26 @@ router.get('/', auth, async (req, res) => {
     res.status(200).json(games);
   } catch (err) {
     return res.status(500).json('Błąd serwera');
+  }
+});
+
+// @route    GET api/games/:id
+// @desc     Get game by ID
+// @access   Private
+router.get('/:id', auth, async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id);
+
+    if (!game) {
+      return res.status(404).json({ msg: 'Nie ma takiej gry' });
+    }
+    res.json(game);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Nie znaleziono takiej gry.' });
+    }
+    res.status(500).send('Błąd serwera');
   }
 });
 

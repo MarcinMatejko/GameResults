@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addGame } from '../../actions/game';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const GameForm = ({ addGame }) => {
   const [formData, setFormData] = useState({

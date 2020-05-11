@@ -1,7 +1,14 @@
-import { ADD_GAME, DELETE_GAME, GAME_ERROR, GET_GAMES } from '../actions/types';
+import {
+  ADD_GAME,
+  DELETE_GAME,
+  GAME_ERROR,
+  GET_GAMES,
+  GET_GAME,
+} from '../actions/types';
 
 const initialState = {
   games: [],
+  game: null,
   loading: true,
   error: {},
 };
@@ -14,6 +21,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         games: payload,
+        loading: false,
+      };
+    case GET_GAME:
+      return {
+        ...state,
+        game: payload,
         loading: false,
       };
     case ADD_GAME:
