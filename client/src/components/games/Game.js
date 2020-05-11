@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getGame, deleteGame } from '../../actions/game';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Game = ({ deleteGame, getGame, game: { game, loading }, match }) => {
   useEffect(() => {
