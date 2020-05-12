@@ -16,10 +16,10 @@ const Landing = ({ isAuthenticated }) => {
         wszędzie
       </p>
       <div className='buttons'>
-        <Link to='/login' className='btn btn-login'>
+        <Link to='/login' className='btn btn-primary'>
           Zaloguj
         </Link>
-        <Link to='/register' className='btn btn-register'>
+        <Link to='/register' className='btn btn-primary'>
           Załóż konto
         </Link>
       </div>

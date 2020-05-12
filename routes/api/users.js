@@ -204,4 +204,67 @@ router.delete('/players/:player_id', auth, async (req, res) => {
   }
 });
 
+// @route   POST api/users/userGames
+// @desc    Create and add new game to userGames
+// @access  Private
+router.post(
+  '/userGames',
+  auth,
+  [
+    check('title', 'Tytuł gry jest wymagany').not().isEmpty(),
+    check('minPlayers', 'Podaj minimalną ilość graczy. Minimum 1').isInt({
+      allow_leading_zeroes: false,
+      gt: 0,
+    }),
+    check('maxPlayers', 'Podaj maksymalną ilość graczy. Miminum 1').isInt({
+      allow_leading_zeroes: false,
+      gt: 0,
+    }),
+    check('minAge', 'Podaj minimalny wiek dla gracza. Mimimum 1').isInt({
+      allow_leading_zeroes: false,
+      gt: 0,
+    }),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { title, minPlayers, maxPlayers, minAge } = req.body;
+
+    try {
+      let game = await Game.findOne({ title });
+
+      if (game) {
+        return res.status(400).json({
+          errors: [
+            {
+              msg:
+                'Podany tytuł jest już w naszej bazie. Możesz dodać go do ulubionych.',
+            },
+          ],
+        });
+      }
+
+      const user = await User.findById({ _id: req.user.id });
+
+      const NewUserGame = {
+        title,
+        minPlayers,
+        maxPlayers,
+        minAge,
+      };
+
+      user.userGames.unshift(NewUserGame);
+
+      await user.save();
+      res.json(user);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Błąd serwera');
+    }
+  }
+);
+
 module.exports = router;

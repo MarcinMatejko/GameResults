@@ -7,7 +7,7 @@ const Game = require('../../models/Game');
 
 // @route   POST api/games
 // @desc    Create new game
-// @access  Public
+// @access  Private
 router.post(
   '/',
   auth,
@@ -43,24 +43,39 @@ router.post(
           .json({ errors: [{ msg: 'Podany tytuł już istnieje.' }] });
       }
 
-      const user = await User.findById(req.user.id);
-
       game = new Game({
         title,
         minPlayers,
         maxPlayers,
         minAge,
-        user: req.user.id,
       });
 
       await game.save();
-      res.json(game).send(`Gra ${title} dodana do bazy`);
+      res.json(game);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Błąd serwera');
     }
   }
 );
+
+// @route   POST api/users/userGames
+// @desc    Add Game from Games to userGames
+// @access  Private
+router.get('/games/:id', auth, async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+    const game = await Game.findById({ _id: req.params.id });
+
+    user.userGames.unshift(game);
+
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
+  }
+});
 
 // @route   GET api/games/
 // @desc    Get all games
