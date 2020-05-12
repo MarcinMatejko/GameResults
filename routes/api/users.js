@@ -267,24 +267,6 @@ router.post(
   }
 );
 
-// @route   POST api/users/userGames
-// @desc    Add Game from Games to userGames
-// @access  Private
-router.post('/userGames/:id', auth, async (req, res) => {
-  try {
-    const user = await User.findById({ _id: req.user.id });
-    const game = await Game.findById({ _id: req.params.id });
-
-    user.userGames.unshift(game);
-
-    await user.save();
-    res.json(user);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Błąd serwera');
-  }
-});
-
 // @route   GET api/users/userGames
 // @desc    Get all userGames
 // @access  Private
@@ -302,6 +284,31 @@ router.get('/userGames', auth, async (req, res) => {
     res.status(200).json(user.userGames);
   } catch (err) {
     return res.status(500).json('Błąd serwera');
+  }
+});
+
+// @route   DELETE api/users/userGames/:id
+// @desc    Delete a game from userGames
+// @access  Private
+
+router.delete('/userGames/:id', auth, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    let user = await User.findById({ _id: req.user.id });
+
+    user.userGames = user.userGames.filter(
+      (game) => game._id.toString() !== req.params.id
+    );
+
+    await user.save();
+    return res.status(200).json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
   }
 });
 

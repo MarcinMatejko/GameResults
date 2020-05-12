@@ -59,10 +59,10 @@ router.post(
   }
 );
 
-// @route   POST api/users/userGames
+// @route   POST api/games/:id
 // @desc    Add Game from Games to userGames
 // @access  Private
-router.get('/games/:id', auth, async (req, res) => {
+router.post('/:id', auth, async (req, res) => {
   try {
     const user = await User.findById({ _id: req.user.id });
     const game = await Game.findById({ _id: req.params.id });
