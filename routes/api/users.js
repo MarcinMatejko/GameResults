@@ -267,4 +267,42 @@ router.post(
   }
 );
 
+// @route   POST api/users/userGames
+// @desc    Add Game from Games to userGames
+// @access  Private
+router.post('/userGames/:id', auth, async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+    const game = await Game.findById({ _id: req.params.id });
+
+    user.userGames.unshift(game);
+
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Błąd serwera');
+  }
+});
+
+// @route   GET api/users/userGames
+// @desc    Get all userGames
+// @access  Private
+
+router.get('/userGames', auth, async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+
+    if (user.userGames.length === 0) {
+      return res
+        .status(404)
+        .json({ msg: 'Ten użytkownik nie posiada żadnych ulubionych gier.' });
+    }
+
+    res.status(200).json(user.userGames);
+  } catch (err) {
+    return res.status(500).json('Błąd serwera');
+  }
+});
+
 module.exports = router;
