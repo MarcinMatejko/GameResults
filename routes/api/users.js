@@ -259,7 +259,7 @@ router.post(
       user.userGames.unshift(NewUserGame);
 
       await user.save();
-      res.json(user);
+      res.json(NewUserGame);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Błąd serwera');
@@ -287,6 +287,29 @@ router.get('/userGames', auth, async (req, res) => {
   }
 });
 
+// @route    GET api/games/:id
+// @desc     Get userGame by ID
+// @access   Private
+router.get('/userGames/:id', auth, async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.user.id });
+
+    const game = user.userGames.find((game) => game.id === req.params.id);
+
+    if (!game) {
+      return res.status(404).json({ msg: 'Nie ma takiej gry' });
+    }
+
+    return res.status(200).json(game);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Nie znaleziono takiej gry.' });
+    }
+    res.status(500).send('Błąd serwera');
+  }
+});
+
 // @route   DELETE api/users/userGames/:id
 // @desc    Delete a game from userGames
 // @access  Private
@@ -311,5 +334,9 @@ router.delete('/userGames/:id', auth, async (req, res) => {
     res.status(500).send('Błąd serwera');
   }
 });
+
+// @route   POST api/users/results
+// @desc    Add new result
+// @access  Private
 
 module.exports = router;

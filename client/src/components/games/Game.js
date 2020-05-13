@@ -3,13 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getGame, deleteGame } from '../../actions/game';
+import { addUserGameFromGames } from '../../actions/userGame';
 import { Link } from 'react-router-dom';
 
-const Game = ({ deleteGame, getGame, game: { game, loading }, match }) => {
+const Game = ({
+  addUserGameFromGames,
+  deleteGame,
+  getGame,
+  game: { game, loading },
+  match,
+}) => {
   useEffect(() => {
     getGame(match.params.id);
   }, [getGame, match.params.id]);
 
+  const onClick = async (e) => {
+    addUserGameFromGames(game.game);
+  };
   return loading ? (
     <Spinner />
   ) : game === null ? (
@@ -38,13 +48,21 @@ const Game = ({ deleteGame, getGame, game: { game, loading }, match }) => {
           </p>
           <p>Gra od {game.minAge} lat.</p>
         </div>
-        <button
+        {/* <button
           onClick={(e) => deleteGame(game._id)}
           type='button'
           className='btn btn-danger'
           style={{ height: '2rem' }}
         >
           Usuń Grę
+        </button> */}
+        <button
+          onClick={(e) => onClick(e)}
+          type='button'
+          className='btn btn-danger'
+          style={{ height: '2rem' }}
+        >
+          Dodaj do ulubionych
         </button>
       </div>
       <Link className='btn btn-primary' to='/games'>
@@ -57,11 +75,17 @@ const Game = ({ deleteGame, getGame, game: { game, loading }, match }) => {
 Game.propTypes = {
   getGame: PropTypes.func.isRequired,
   game: PropTypes.object.isRequired,
+  userGame: PropTypes.object.isRequired,
   deleteGame: PropTypes.func.isRequired,
+  addUserGameFromGames: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   game: state.game,
 });
 
-export default connect(mapStateToProps, { getGame, deleteGame })(Game);
+export default connect(mapStateToProps, {
+  getGame,
+  deleteGame,
+  addUserGameFromGames,
+})(Game);

@@ -70,7 +70,7 @@ router.post('/:id', auth, async (req, res) => {
     user.userGames.unshift(game);
 
     await user.save();
-    res.json(user);
+    res.json(game);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Błąd serwera');

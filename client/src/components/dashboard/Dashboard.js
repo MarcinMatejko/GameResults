@@ -42,6 +42,13 @@ const Dashboard = ({
       >
         Lista Gier
       </Link>
+      <Link
+        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
+        to='/user-games'
+        className='btn btn-primary'
+      >
+        Moje Gry
+      </Link>
     </div>
   );
 };

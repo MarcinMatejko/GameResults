@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema({
   },
   userGames: [
     {
+      game: {
+        type: mongoose.Schema.Types.ObjectId,
+      },
       title: {
         type: String,
         required: true,
@@ -46,12 +49,40 @@ const UserSchema = new mongoose.Schema({
       playerName: {
         type: String,
         required: true,
+        unique: true,
       },
       age: {
         type: Number,
       },
       color: {
         type: String,
+      },
+    },
+  ],
+  results: [
+    {
+      game: {
+        type: String,
+        required: true,
+      },
+      players: [
+        {
+          playerName: {
+            type: String,
+            required: true,
+          },
+          color: {
+            type: String,
+          },
+          points: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
+      whoWin: {
+        type: String,
+        required: true,
       },
     },
   ],
