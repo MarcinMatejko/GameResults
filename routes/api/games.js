@@ -4,6 +4,7 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 const Game = require('../../models/Game');
+const User = require('../../models/User');
 
 // @route   POST api/games
 // @desc    Create new game

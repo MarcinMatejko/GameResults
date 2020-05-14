@@ -42,7 +42,27 @@ const PlayerForm = ({ addPlayer }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+
         <div className='form-group'>
+          <label>
+            <select value={color} name='color' onChange={(e) => onChange(e)}>
+              <option value='niebieski'>niebieski</option>
+              <option value='zielony'>zielony</option>
+              <option value='żółty'>żółty</option>
+              <option value='czerwony'>czerwony</option>
+              <option value='czarny'>czarny</option>
+              <option value='biały'>biały</option>
+              <option value='brązowy'>brązowy</option>
+              <option value='fioletowy'>fioletowy</option>
+              <option value='różowy'>różowy</option>
+              <option value='szary'>szary</option>
+              <option value='pomarańczowy'>pomarańczowy</option>
+              <option value='złoty'>złoty</option>
+            </select>
+          </label>
+        </div>
+
+        {/* <div className='form-group'>
           <input
             type='text'
             placeholder='Kolor gracza'
@@ -50,7 +70,7 @@ const PlayerForm = ({ addPlayer }) => {
             value={color}
             onChange={(e) => onChange(e)}
           />
-        </div>
+        </div> */}
         <input
           style={{ margin: '1rem 0' }}
           type='submit'

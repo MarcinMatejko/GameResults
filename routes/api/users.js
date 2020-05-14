@@ -8,6 +8,7 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
+const Game = require('../../models/Game');
 
 // @route   POST api/users
 // @desc    Register User
@@ -338,5 +339,44 @@ router.delete('/userGames/:id', auth, async (req, res) => {
 // @route   POST api/users/results
 // @desc    Add new result
 // @access  Private
+
+router.post(
+  '/results/:id',
+
+  auth,
+  [
+    check('players', 'Dodanie graczy jest wymagane').not().isEmpty(),
+    check('whoWin', 'Podanie zwycięzcy jest wymagane').not().isEmpty(),
+  ],
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const game = await Game.findById(req.params.id);
+
+    const newResult = {
+      game: game,
+      players,
+
+      whoWin: req.body,
+    };
+
+    try {
+      const user = await User.findById(req.user.id).select('-password');
+
+      user.results.unshift(newResult);
+
+      await user.save();
+
+      res.json(user);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Błąd serwera');
+    }
+  }
+);
 
 module.exports = router;
