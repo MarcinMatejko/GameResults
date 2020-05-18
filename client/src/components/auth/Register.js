@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
@@ -32,56 +32,66 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <h1>Zarejestruj się</h1>
-      <p>Załóż darmowe konto, aby móc używać serwisu.</p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Imię'
-            name='name'
-            value={name}
-            onChange={(e) => onChange(e)}
-            // required
-          />
+    <section className='landing'>
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='large'>Zarejestruj się</h1>
+          <p className='lead'>
+            Załóż darmowe konto, aby móc korzystać z serwisu.
+          </p>
+          <form className='form' onSubmit={(e) => onSubmit(e)}>
+            <div className='form-group'>
+              <input
+                type='text'
+                placeholder='Imię'
+                name='name'
+                value={name}
+                onChange={(e) => onChange(e)}
+                // required
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='email'
+                placeholder='Adres Email'
+                name='email'
+                value={email}
+                onChange={(e) => onChange(e)}
+                // required
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='password'
+                placeholder='Hasło'
+                name='password'
+                value={password}
+                onChange={(e) => onChange(e)}
+                // minLength='6'
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='password'
+                placeholder='Potwierdź hasło'
+                name='password2'
+                value={password2}
+                onChange={(e) => onChange(e)}
+                // minLength='6'
+              />
+            </div>
+            <input
+              type='submit'
+              className='btn btn-primary btn-block'
+              value='Zarejestruj'
+            />
+          </form>
+          <p className='margin-y-1'>
+            Posiadasz konto? <Link to='/login'>Zaloguj się</Link>
+          </p>
         </div>
-        <div className='form-group'>
-          <input
-            type='email'
-            placeholder='Adres Email'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-            // required
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Hasło'
-            name='password'
-            value={password}
-            onChange={(e) => onChange(e)}
-            // minLength='6'
-          />
-        </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Potwierdź hasło'
-            name='password2'
-            value={password2}
-            onChange={(e) => onChange(e)}
-            // minLength='6'
-          />
-        </div>
-        <input type='submit' className='btn btn-primary' value='Zarejestruj' />
-      </form>
-      <p>
-        Posiadasz konto? <Link to='/login'>Zaloguj się</Link>
-      </p>
-    </Fragment>
+      </div>
+    </section>
   );
 };
 

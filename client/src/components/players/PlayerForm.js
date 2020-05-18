@@ -74,7 +74,7 @@ const PlayerForm = ({ addPlayer }) => {
         <input
           style={{ margin: '1rem 0' }}
           type='submit'
-          className='btn btn-primary'
+          className='btn btn-primary btn-block'
           value='Dodaj gracza'
         />
       </form>

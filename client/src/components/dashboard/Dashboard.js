@@ -17,39 +17,22 @@ const Dashboard = ({
   return loading && profile === null ? (
     <Spinner />
   ) : (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        margin: '1rem',
-        padding: '1rem',
-      }}
-    >
-      <h1>Dashoard</h1>
-      <p>Cześć, {user && user.name}</p>
-      <Link
-        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
-        to='/players'
-        className='btn btn-primary'
-      >
-        Lista Graczy
-      </Link>
-      <Link
-        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
-        to='/games'
-        className='btn btn-primary'
-      >
-        Lista Gier
-      </Link>
-      <Link
-        style={{ width: '200px', margin: '1rem', textAlign: 'center' }}
-        to='/user-games'
-        className='btn btn-primary'
-      >
-        Moje Gry
-      </Link>
-    </div>
+    <section className='dashboard'>
+      <div className='dark-overlay'>
+        <div className='dashboard-inner'>
+          <h1 className='large'>Cześć {user && user.name}</h1>
+          <Link to='/players' className='btn-dashboard'>
+            Lista Graczy
+          </Link>
+          <Link to='/games' className='btn-dashboard'>
+            Lista Gier
+          </Link>
+          <Link to='/user-games' className='btn-dashboard'>
+            Moje Gry
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

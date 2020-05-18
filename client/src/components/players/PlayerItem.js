@@ -14,9 +14,13 @@ const PlayerItem = ({
       display: 'flex',
       justifyContent: 'space-between',
       border: 'solid 1px #333',
+      borderRadius: '0.5rem',
       margin: '1rem 0',
       padding: '1rem',
-      width: '600px',
+      width: '80vw',
+      backgroundColor: '#fff',
+      opacity: '0.8',
+      color: '#333',
     }}
   >
     <div>

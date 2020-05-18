@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './Landing.css';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -10,18 +11,22 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <section className='landing'>
-      <h1>Punktator</h1>
-      <p>
-        Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze i
-        wszędzie
-      </p>
-      <div className='buttons'>
-        <Link to='/login' className='btn btn-primary'>
-          Zaloguj
-        </Link>
-        <Link to='/register' className='btn btn-primary'>
-          Załóż konto
-        </Link>
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='x-large'>Punktator</h1>
+          <p className='lead'>
+            Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze i
+            wszędzie
+          </p>
+          <div className='buttons'>
+            <Link to='/login' className='btn btn-primary'>
+              Zaloguj
+            </Link>
+            <Link to='/register' className='btn btn-primary'>
+              Załóż konto
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

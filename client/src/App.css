@@ -25,8 +25,27 @@ body {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
-  margin-bottom: 3rem;
+  margin-top: 5rem;
+}
+
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.large {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .btn {
@@ -40,6 +59,32 @@ body {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 0.5rem;
+}
+
+.btn-dashboard {
+  display: inline-block;
+  background: var(--light-color);
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 80%;
+  border: none;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  border-radius: 0.5rem;
+}
+
+.btn-block {
+  font: inherit;
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
 }
 
 .badge {
@@ -144,10 +189,37 @@ a {
   text-decoration: none;
 }
 
+p a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.margin-y-1 {
+  margin: 1rem 0;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .landing {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./img/landing.jpg') no-repeat center center/cover;
   height: 100vh;
-  color: #333;
+}
+
+.landing-inner {
+  color: #fff;
+  height: 100%;
   width: 80%;
   margin: auto;
   display: flex;
@@ -155,4 +227,78 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.dashboard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./img/dashboard.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+.dashboard-inner {
+  color: #fff;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.players {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./img/players.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+}
+
+.players-inner {
+  color: #fff;
+  height: 100%;
+  width: 80%;
+  margin: 6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/* Forms */
+.form .form-group {
+  margin: 1.2rem 0;
+}
+
+.form .form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
+.form input[type='number'],
+.form select,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.form input[type='submit'],
+button {
+  font: inherit;
 }

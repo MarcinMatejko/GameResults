@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -24,36 +24,43 @@ const Login = ({ login, isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
   return (
-    <Fragment>
-      <h1>Zaloguj się</h1>
-      <p>Zaloguj się na swoje konto.</p>
-      <form className='form' onSubmit={(e) => onSubmit(e)}>
-        <div className='form-group'>
-          <input
-            type='email'
-            placeholder='Adres Email'
-            name='email'
-            value={email}
-            onChange={(e) => onChange(e)}
-            required
-          />
+    <section className='landing'>
+      <div className='dark-overlay'>
+        <div className='landing-inner'>
+          <h1 className='large'>Zaloguj się</h1>
+          <form className='form' onSubmit={(e) => onSubmit(e)}>
+            <div className='form-group'>
+              <input
+                type='email'
+                placeholder='Adres Email'
+                name='email'
+                value={email}
+                onChange={(e) => onChange(e)}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='password'
+                placeholder='Hasło'
+                name='password'
+                value={password}
+                onChange={(e) => onChange(e)}
+                minLength='6'
+              />
+            </div>
+            <input
+              type='submit'
+              className='btn btn-primary btn-block'
+              value='Zaloguj'
+            />
+          </form>
+          <p className='margin-y-1'>
+            Nie posiadasz konta? <Link to='/register'>Zarejestruj się</Link>
+          </p>
         </div>
-        <div className='form-group'>
-          <input
-            type='password'
-            placeholder='Hasło'
-            name='password'
-            value={password}
-            onChange={(e) => onChange(e)}
-            minLength='6'
-          />
-        </div>
-        <input type='submit' className='btn btn-primary' value='Zaloguj' />
-      </form>
-      <p>
-        Nie posiadasz konta? <Link to='/register'>Zarejestruj się</Link>
-      </p>
-    </Fragment>
+      </div>
+    </section>
   );
 };
 
