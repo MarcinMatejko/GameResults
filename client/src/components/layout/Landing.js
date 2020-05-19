@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './Landing.css';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -12,7 +11,7 @@ const Landing = ({ isAuthenticated }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='landing-inner'>
+        <div className='page-inner'>
           <h1 className='x-large'>Punktator</h1>
           <p className='lead'>
             Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze i

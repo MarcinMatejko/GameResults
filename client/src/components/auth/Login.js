@@ -26,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='landing-inner'>
+        <div className='page-inner'>
           <h1 className='large'>Zaloguj się</h1>
           <form className='form' onSubmit={(e) => onSubmit(e)}>
             <div className='form-group'>

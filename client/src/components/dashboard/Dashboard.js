@@ -19,15 +19,15 @@ const Dashboard = ({
   ) : (
     <section className='dashboard'>
       <div className='dark-overlay'>
-        <div className='dashboard-inner'>
+        <div className='page-inner'>
           <h1 className='large'>Cześć {user && user.name}</h1>
-          <Link to='/players' className='btn-dashboard'>
+          <Link to='/players' className='btn btn-dashboard'>
             Lista Graczy
           </Link>
-          <Link to='/games' className='btn-dashboard'>
+          <Link to='/games' className='btn btn-dashboard'>
             Lista Gier
           </Link>
-          <Link to='/user-games' className='btn-dashboard'>
+          <Link to='/user-games' className='btn btn-dashboard'>
             Moje Gry
           </Link>
         </div>

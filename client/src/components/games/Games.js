@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
+import Scroll from '../layout/Scroll';
 import { getGames } from '../../actions/game';
 
 const Games = ({ getGames, game: { games, loading } }) => {
@@ -11,56 +12,38 @@ const Games = ({ getGames, game: { games, loading } }) => {
   }, [getGames]);
 
   return (
-    <Fragment>
-      <h1>Lista dostępnych gier</h1>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <Fragment>
-          <div
-            className='games'
-            style={{
-              border: 'solid 1px blue',
-              padding: '1rem',
-              margin: '1rem 0',
-            }}
-          >
-            {games.map((game) => (
-              <h3
-                style={{
-                  border: 'solid 1px green',
-                  padding: '0.5rem',
-                  margin: '0.5rem 0',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-                key={game._id}
-              >
-                {game.title}
-                <Link
-                  style={{
-                    margin: '1rem',
-                    textAlign: 'center',
-                  }}
-                  to={`/games/${game._id}`}
-                  className='btn btn-primary'
-                >
-                  Szczegóły
-                </Link>
-              </h3>
-            ))}
-          </div>
-        </Fragment>
-      )}
-      <Link className='btn btn-primary' to='add-game'>
-        Dodaj nową Grę
-      </Link>
+    <section className='games'>
+      <div className='dark-overlay'>
+        <Scroll>
+          <div className='games-inner'>
+            <h1 className='large'>Lista dostępnych gier</h1>
+            {loading ? (
+              <Spinner />
+            ) : (
+              <div className='games-box'>
+                {games.map((game) => (
+                  <div className='game-item'>
+                    <h3 key={game._id}>{game.title}</h3>
+                    <Link to={`/games/${game._id}`} className='btn btn-primary'>
+                      Szczegóły
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className='buttons'>
+              <Link className='btn btn-primary' to='add-game'>
+                Dodaj nową Grę
+              </Link>
 
-      <Link className='btn btn-primary' to='dashboard'>
-        Powrót
-      </Link>
-    </Fragment>
+              <Link className='btn btn-primary' to='dashboard'>
+                Powrót
+              </Link>
+            </div>
+          </div>
+        </Scroll>
+      </div>
+    </section>
   );
 };
 

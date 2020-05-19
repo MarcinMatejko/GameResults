@@ -34,7 +34,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='landing-inner'>
+        <div className='page-inner'>
           <h1 className='large'>Zarejestruj się</h1>
           <p className='lead'>
             Załóż darmowe konto, aby móc korzystać z serwisu.

@@ -76,7 +76,7 @@ export const addUserGame = (formData) => async (dispatch) => {
 // Add UserGame from Games
 export const addUserGameFromGames = (id) => async (dispatch) => {
   try {
-    const res = await axios.post(`/api/games/:id`);
+    const res = await axios.post(`/api/games/${id}`);
 
     dispatch({
       type: ADD_USER_GAME_FROM_GAMES,

@@ -29,38 +29,31 @@ const Game = ({
       </Link>
     </Fragment>
   ) : (
-    <Fragment>
-      <div
-        className='game'
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          border: 'solid 1px blue',
-          padding: '0.5rem',
-          margin: '0.5rem',
-        }}
-      >
-        <div>
-          <h3>{game.title}</h3>
-          <p>
-            Liczba graczy: {game.minPlayers} - {game.maxPlayers}
-          </p>
-          <p>Gra od {game.minAge} lat.</p>
-        </div>
+    <div className='game'>
+      <div className='dark-overlay'>
+        <div className='game-info'>
+          <div>
+            <h3>{game.title}</h3>
+            <p>
+              Liczba graczy: {game.minPlayers} - {game.maxPlayers}
+            </p>
+            <p>Gra od {game.minAge} lat.</p>
+          </div>
 
-        {/* <button
-          onClick={(e) => onClick(e)}
-          type='button'
-          className='btn btn-danger'
-          style={{ height: '2rem' }}
-        >
-          Dodaj do ulubionych
-        </button> */}
+          <button
+            // onClick={(e) => onClick(e)}
+            type='button'
+            className='btn btn-primary'
+            style={{ height: '2.5rem' }}
+          >
+            Dodaj do ulubionych
+          </button>
+        </div>
+        <Link className='btn btn-primary' to='/games'>
+          Powrót
+        </Link>
       </div>
-      <Link className='btn btn-primary' to='/games'>
-        Powrót
-      </Link>
-    </Fragment>
+    </div>
   );
 };
 
