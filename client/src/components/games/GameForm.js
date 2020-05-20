@@ -29,7 +29,10 @@ const GameForm = ({ addGame, isCreated }) => {
     <section className='games'>
       <div className='dark-overlay'>
         <div className='games-inner'>
-          <h3>Dodaj nową grę</h3>
+          <Link className='btn btn-primary btn-back' to='/games'>
+            Powrót
+          </Link>
+          <h3 className='large mt-4'>Dodaj nową grę</h3>
           <form className='form' onSubmit={(e) => onSubmit(e)}>
             <div className='form-group'>
               <input
@@ -72,15 +75,11 @@ const GameForm = ({ addGame, isCreated }) => {
               />
             </div>
             <input
-              style={{ margin: '1rem 0' }}
               type='submit'
-              className='btn btn-primary'
+              className='btn btn-primary btn-block'
               value='Dodaj Grę'
             />
           </form>
-          <Link className='btn btn-primary' to='games'>
-            Powrót
-          </Link>
         </div>
       </div>
     </section>

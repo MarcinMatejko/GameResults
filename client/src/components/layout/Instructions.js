@@ -6,11 +6,11 @@ const Instructions = () => {
     <div className='instructions'>
       <div className='dark-overlay'>
         <div className='page-inner'>
-          <h1 className='x-large'>Jak używać Punktatora</h1>
-          <p>Dopiero to swtorze, na razie radź sobie na własną rękę.</p>
-          <Link className='btn btn-primary margin-1' to='dashboard'>
+          <Link className='btn btn-primary btn-back' to='/'>
             Powrót
           </Link>
+          <h1 className='x-large'>Jak używać Punktatora</h1>
+          <p>Dopiero to swtorze, na razie radź sobie na własną rękę.</p>
         </div>
       </div>
     </div>

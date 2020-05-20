@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
+import { logout } from '../../actions/auth';
 
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
   profile: { profile, loading },
+  logout,
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -20,6 +22,9 @@ const Dashboard = ({
     <section className='dashboard'>
       <div className='dark-overlay'>
         <div className='page-inner'>
+          <Link onClick={logout} to='/' className='btn btn-danger btn-logout'>
+            Wyloguj
+          </Link>
           <h1 className='large'>Cześć {user && user.name}</h1>
           <Link to='/players' className='btn btn-dashboard'>
             Lista Graczy
@@ -43,6 +48,7 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -50,4 +56,6 @@ const mapStateToProps = (state) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, logout })(
+  Dashboard
+);

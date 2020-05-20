@@ -16,7 +16,10 @@ const UserGames = ({ getUserGames, userGame: { userGames, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='games-inner'>
-            <h1 className='large'>Lista twoich ulubionych gier</h1>
+            <Link className='btn btn-primary btn-back' to='/'>
+              Powrót
+            </Link>
+            <h1 className='large mt-4'>Lista twoich ulubionych gier</h1>
             {loading ? (
               <Spinner />
             ) : (
@@ -30,14 +33,10 @@ const UserGames = ({ getUserGames, userGame: { userGames, loading } }) => {
                 ))}
               </div>
             )}
-            <div className='buttons'>
-              <Link className='btn btn-primary margin-1' to='dashboard'>
-                Powrót
-              </Link>
-              <Link className='btn btn-primary margin-1' to='add-user-game'>
-                Dodaj Grę do ulubionych
-              </Link>
-            </div>
+
+            <Link className='btn btn-primary btn-add-game' to='add-user-game'>
+              Dodaj Grę do ulubionych
+            </Link>
           </div>
         </Scroll>
       </div>

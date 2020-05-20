@@ -35,6 +35,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='page-inner'>
+          <Link className='btn btn-primary btn-back' to='/'>
+            Powrót
+          </Link>
           <h1 className='large'>Zarejestruj się</h1>
           <p className='lead'>
             Załóż darmowe konto, aby móc korzystać z serwisu.

@@ -18,7 +18,10 @@ const Players = ({ getPlayers, player: { players, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='players-inner'>
-            <h1 className='x-large'>Gracze</h1>
+            <Link className='btn btn-primary btn-back' to='/'>
+              Powrót
+            </Link>
+            <h1 className='x-large mt-4'>Gracze</h1>
             {loading ? (
               <Spinner />
             ) : (
@@ -31,15 +34,7 @@ const Players = ({ getPlayers, player: { players, loading } }) => {
                 </div>
               </Fragment>
             )}
-
             <PlayerForm />
-            <Link
-              className='btn btn-primary'
-              to='dashboard'
-              style={{ margin: '1rem auto 5rem' }}
-            >
-              Powrót
-            </Link>
           </div>
         </Scroll>
       </div>
