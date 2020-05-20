@@ -48,7 +48,6 @@ body {
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  margin: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
   border-radius: 0.5rem;
@@ -90,11 +89,15 @@ body {
 }
 
 .alert {
+  position: absolute;
+  top: 4rem;
+  width: 80vw;
+  left: 10%;
   padding: 0.8rem;
-  margin: 1rem 0;
-  opacity: 0.9;
   background: var(--light-color);
   color: #333;
+  border-radius: 0.5rem;
+  z-index: 1;
 }
 
 .btn-primary,
@@ -187,8 +190,20 @@ p a {
   text-decoration: none;
 }
 
+.margin-1 {
+  margin: 1rem;
+}
+
 .margin-y-1 {
   margin: 1rem 0;
+}
+
+.margin-x-1 {
+  margin: 0 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
 .dark-overlay {
@@ -208,11 +223,6 @@ p a {
   height: 100%;
 }
 
-.landing {
-  background: url('./img/landing.jpg') no-repeat center center/cover;
-  height: 100vh;
-}
-
 .page-inner {
   color: #fff;
   height: 100%;
@@ -223,6 +233,16 @@ p a {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.landing {
+  background: url('./img/landing.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+.instructions {
+  background: url('./img/landing.jpg') no-repeat center center/cover;
+  height: 100vh;
 }
 
 .dashboard {
@@ -313,12 +333,18 @@ p a {
   align-items: center;
   border-radius: 0.5rem;
   margin: 5rem auto;
-  padding: 0.5rem;
+  padding: 1rem;
   width: 80vw;
   max-width: 600px;
   background-color: #fff;
   opacity: 0.8;
   color: #333;
+}
+
+.game-buttons {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
 
 /* Forms */

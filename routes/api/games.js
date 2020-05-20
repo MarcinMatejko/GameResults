@@ -91,6 +91,16 @@ router.get('/', auth, async (req, res) => {
   try {
     const games = await Game.find();
 
+    games.sort(function (a, b) {
+      if (a.title.toUpperCase() < b.title.toUpperCase()) {
+        return -1;
+      }
+      if (a.title.toUpperCase() > b.title.toUpperCase()) {
+        return 1;
+      }
+      return 0;
+    });
+
     res.status(200).json(games);
   } catch (err) {
     return res.status(500).json('Błąd serwera');

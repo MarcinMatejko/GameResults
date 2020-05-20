@@ -50,6 +50,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     });
 
     dispatch(loadUser());
+    dispatch(setAlert('Konto zostało utworzone', 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -80,6 +81,7 @@ export const login = (email, password) => async (dispatch) => {
       payload: res.data,
     });
 
+    dispatch(setAlert('Zostałeś zalogowany', 'success'));
     dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;

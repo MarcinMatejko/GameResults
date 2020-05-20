@@ -22,12 +22,17 @@ const Game = ({
   return loading ? (
     <Spinner />
   ) : game === null ? (
-    <Fragment>
-      <h1>Nie ma takiej gry</h1>
-      <Link className='btn btn-primary' to='/games'>
-        Powrót do listy Gier
-      </Link>
-    </Fragment>
+    <div className='game'>
+      <div className='dark-overlay'>
+        <div className='game-info'>
+          <h1>Nie ma takiej gry</h1>
+
+          <Link className='btn btn-primary' to='/games'>
+            Powrót do listy Gier
+          </Link>
+        </div>
+      </div>
+    </div>
   ) : (
     <div className='game'>
       <div className='dark-overlay'>
@@ -39,19 +44,18 @@ const Game = ({
             </p>
             <p>Gra od {game.minAge} lat.</p>
           </div>
-
-          <button
-            // onClick={(e) => onClick(e)}
+          <Link className='btn btn-primary' to='/games'>
+            Powrót
+          </Link>
+          {/* <button
+            onClick={(e) => onClick(e)}
             type='button'
             className='btn btn-primary'
             style={{ height: '2.5rem' }}
           >
             Dodaj do ulubionych
-          </button>
+          </button> */}
         </div>
-        <Link className='btn btn-primary' to='/games'>
-          Powrót
-        </Link>
       </div>
     </div>
   );

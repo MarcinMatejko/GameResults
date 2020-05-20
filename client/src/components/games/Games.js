@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -22,22 +22,20 @@ const Games = ({ getGames, game: { games, loading } }) => {
             ) : (
               <div className='games-box'>
                 {games.map((game) => (
-                  <div className='game-item'>
-                    <h3 key={game._id}>{game.title}</h3>
-                    <Link to={`/games/${game._id}`} className='btn btn-primary'>
-                      Szczegóły
+                  <div key={game._id}>
+                    <Link to={`/games/${game._id}`} className='game-item'>
+                      <h3>{game.title}</h3>
                     </Link>
                   </div>
                 ))}
               </div>
             )}
             <div className='buttons'>
-              <Link className='btn btn-primary' to='add-game'>
-                Dodaj nową Grę
-              </Link>
-
-              <Link className='btn btn-primary' to='dashboard'>
+              <Link className='btn btn-primary margin-1' to='dashboard'>
                 Powrót
+              </Link>
+              <Link className='btn btn-primary margin-1' to='add-game'>
+                Dodaj nową Grę
               </Link>
             </div>
           </div>

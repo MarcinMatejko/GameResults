@@ -29,7 +29,7 @@ export const deletePlayer = (id) => async (dispatch) => {
       payload: id,
     });
 
-    dispatch(setAlert('Gracz usunięty', 'success'));
+    dispatch(setAlert('Gracz usunięty', 'danger'));
   } catch (err) {
     const errors = err.response.data.errors;
 

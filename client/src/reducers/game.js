@@ -11,6 +11,7 @@ const initialState = {
   game: null,
   loading: true,
   error: {},
+  isCreated: null,
 };
 
 export default function (state = initialState, action) {
@@ -22,18 +23,21 @@ export default function (state = initialState, action) {
         ...state,
         games: payload,
         loading: false,
+        isCreated: null,
       };
     case GET_GAME:
       return {
         ...state,
         game: payload,
         loading: false,
+        isCreated: null,
       };
     case ADD_GAME:
       return {
         ...state,
         games: [...state.games, payload],
         loading: false,
+        isCreated: true,
       };
     case DELETE_GAME:
       return {

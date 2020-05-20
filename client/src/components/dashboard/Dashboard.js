@@ -30,6 +30,9 @@ const Dashboard = ({
           <Link to='/user-games' className='btn btn-dashboard'>
             Moje Gry
           </Link>
+          <Link to='/instructions' className='btn btn-dashboard'>
+            Jak korzystać?
+          </Link>
         </div>
       </div>
     </section>

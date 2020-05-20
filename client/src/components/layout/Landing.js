@@ -18,11 +18,14 @@ const Landing = ({ isAuthenticated }) => {
             wszędzie
           </p>
           <div className='buttons'>
-            <Link to='/login' className='btn btn-primary'>
+            <Link to='/login' className='btn btn-primary margin-x-1'>
               Zaloguj
             </Link>
-            <Link to='/register' className='btn btn-primary'>
+            <Link to='/register' className='btn btn-primary margin-x-1'>
               Załóż konto
+            </Link>
+            <Link to='/instructions' className='btn btn-primary margin-1'>
+              Jak korzystać?
             </Link>
           </div>
         </div>

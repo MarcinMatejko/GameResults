@@ -236,19 +236,18 @@ router.post(
 
     try {
       let game = await Game.findOne({ title });
+      const user = await User.findById({ _id: req.user.id });
 
       if (game) {
         return res.status(400).json({
           errors: [
             {
               msg:
-                'Podany tytuł jest już w naszej bazie. Możesz dodać go do ulubionych.',
+                'Podany tytuł jest już w naszej bazie. Możesz dodać go do Twoich gier, z głównej Listy z Grami.',
             },
           ],
         });
       }
-
-      const user = await User.findById({ _id: req.user.id });
 
       const NewUserGame = {
         title,
@@ -281,6 +280,16 @@ router.get('/userGames', auth, async (req, res) => {
         .status(404)
         .json({ msg: 'Ten użytkownik nie posiada żadnych ulubionych gier.' });
     }
+
+    user.userGames.sort(function (a, b) {
+      if (a.title.toUpperCase() < b.title.toUpperCase()) {
+        return -1;
+      }
+      if (a.title.toUpperCase() > b.title.toUpperCase()) {
+        return 1;
+      }
+      return 0;
+    });
 
     res.status(200).json(user.userGames);
   } catch (err) {
