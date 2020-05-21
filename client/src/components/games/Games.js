@@ -34,7 +34,7 @@ const Games = ({ getGames, game: { games, loading } }) => {
               </div>
             )}
 
-            <Link className='btn btn-primary btn-add-game' to='add-game'>
+            <Link className='btn btn-primary btn-add-game mb-6' to='add-game'>
               Dodaj nową Grę
             </Link>
           </div>

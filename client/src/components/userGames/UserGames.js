@@ -34,7 +34,10 @@ const UserGames = ({ getUserGames, userGame: { userGames, loading } }) => {
               </div>
             )}
 
-            <Link className='btn btn-primary btn-add-game' to='add-user-game'>
+            <Link
+              className='btn btn-primary btn-add-game mb-6'
+              to='add-user-game'
+            >
               Dodaj Grę do ulubionych
             </Link>
           </div>

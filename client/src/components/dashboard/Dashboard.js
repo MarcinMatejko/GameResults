@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 import { logout } from '../../actions/auth';
+import { LogOut } from 'react-feather';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -23,7 +24,7 @@ const Dashboard = ({
       <div className='dark-overlay'>
         <div className='page-inner'>
           <Link onClick={logout} to='/' className='btn btn-danger btn-logout'>
-            Wyloguj
+            Wyloguj <LogOut className='margin-l-1' size={20} />
           </Link>
           <h1 className='large'>Cześć {user && user.name}</h1>
           <Link to='/players' className='btn btn-dashboard'>
@@ -35,7 +36,10 @@ const Dashboard = ({
           <Link to='/user-games' className='btn btn-dashboard'>
             Moje Gry
           </Link>
-          <Link to='/instructions' className='btn btn-dashboard'>
+          <Link to='/user-games' className='btn btn-dashboard'>
+            Nowy Wynik Gry
+          </Link>
+          <Link to='/instructions' className='btn btn-dashboard mb-6'>
             Jak korzystać?
           </Link>
         </div>

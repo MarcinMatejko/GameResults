@@ -61,6 +61,12 @@ body {
   margin: 1rem 0;
 }
 
+@media (max-width: 360px) {
+  .btn-dashboard {
+    font-size: 1.2rem;
+  }
+}
+
 .btn-landing {
   font-size: 1rem;
   font-weight: 600;
@@ -96,14 +102,16 @@ body {
   right: 1rem;
   opacity: 1;
   z-index: 1;
+  display: flex;
+  align-items: center;
 }
 
 .btn-add-game {
   width: 80%;
+  max-width: 600px;
   margin: 2rem auto;
   padding: 0.4rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+  font-size: 1.2rem;
 }
 
 .buttons {
@@ -195,8 +203,8 @@ body {
   position: fixed;
   z-index: 1;
   width: 100%;
-  top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  bottom: 0;
+  border-top: solid 1px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -208,19 +216,57 @@ body {
 }
 
 .navbar ul li {
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
   list-style: none;
+}
+
+.nav-item {
+  color: var(--light-color);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 6rem;
+}
+
+@media (max-width: 520px) {
+  .navbar {
+    padding: 0.5rem 0.5rem;
+  }
+  .nav-item {
+    font-size: 0.7rem;
+    width: 3.9rem;
+  }
+  .navbar ul li {
+    padding: 0 0.1rem;
+    list-style: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .navbar {
+    padding: 0.5rem 0.5rem;
+  }
+  .nav-item {
+    font-size: 0.5rem;
+    width: 3rem;
+  }
+  .navbar ul li {
+    padding: 0 0.1rem;
+    list-style: none;
+  }
 }
 
 a {
   color: var(--light-color);
   text-decoration: none;
 }
-
+/* 
 p a {
   color: var(--primary-color);
   text-decoration: none;
-}
+} */
 
 .margin-1 {
   margin: 1rem;
@@ -234,6 +280,10 @@ p a {
   margin: 0 1rem;
 }
 
+.margin-l-1 {
+  margin-left: 1rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -244,6 +294,10 @@ p a {
 
 .mt-4 {
   margin-top: 4rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
 }
 
 .dark-overlay {
