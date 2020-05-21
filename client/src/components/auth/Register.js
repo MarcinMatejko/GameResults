@@ -89,7 +89,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               value='Zarejestruj'
             />
           </form>
-          <p className='margin-y-1'>
+          <p className='mt-1'>
             Posiadasz konto? <Link to='/login'>Zaloguj się</Link>
           </p>
         </div>

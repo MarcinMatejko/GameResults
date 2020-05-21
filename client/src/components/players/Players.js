@@ -27,7 +27,7 @@ const Players = ({ getPlayers, player: { players, loading } }) => {
             ) : (
               <Fragment>
                 <h3>Oto lista twoich graczy:</h3>
-                <div>
+                <div className='players-box'>
                   {players.map((player) => (
                     <PlayerItem key={player._id} player={player} />
                   ))}

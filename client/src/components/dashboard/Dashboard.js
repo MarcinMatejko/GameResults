@@ -26,7 +26,7 @@ const Dashboard = ({
           <Link onClick={logout} to='/' className='btn btn-danger btn-logout'>
             Wyloguj <LogOut className='margin-l-1' size={20} />
           </Link>
-          <h1 className='large'>Cześć {user && user.name}</h1>
+          <h1 className='large dashboard-h1'>Cześć {user && user.name}</h1>
           <Link to='/players' className='btn btn-dashboard'>
             Lista Graczy
           </Link>
