@@ -25,3 +25,4 @@ export const DELETE_USER_GAME = 'DELETE_USER_GAME';
 export const USER_GAME_ERROR = 'USER_GAME_ERROR';
 export const GET_USER_GAMES = 'GET_USER_GAMES';
 export const GET_USER_GAME = 'GET_USER_GAME';
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
