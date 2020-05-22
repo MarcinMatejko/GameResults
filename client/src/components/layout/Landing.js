@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Login from '../auth/Login';
+import logo from '../../img/logo.png';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -11,22 +13,17 @@ const Landing = ({ isAuthenticated }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='page-inner'>
-          <h1 className='x-large'>Punktator</h1>
-          <p className='lead'>
-            Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze i
-            wszędzie
-          </p>
-          <div className='buttons'>
-            <Link to='/login' className='btn btn-primary btn-landing'>
-              Zaloguj
-            </Link>
-            <Link to='/register' className='btn btn-primary btn-landing'>
-              Załóż konto
-            </Link>
-            <Link to='/instructions' className='btn btn-primary btn-landing'>
-              Jak korzystać?
-            </Link>
+        <div className='landing-inner'>
+          <div className='landing-left'>
+            <img src={logo} alt='logo' className='logo' />
+
+            <p className='large landing-large'>
+              Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze
+              i wszędzie
+            </p>
+          </div>
+          <div className='landing-right'>
+            <Login />
           </div>
         </div>
       </div>

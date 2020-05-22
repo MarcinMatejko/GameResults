@@ -90,7 +90,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             />
           </form>
           <p className='mt-1'>
-            Posiadasz konto? <Link to='/login'>Zaloguj się</Link>
+            Posiadasz konto? <Link to='/'>Zaloguj się</Link>
           </p>
         </div>
       </div>

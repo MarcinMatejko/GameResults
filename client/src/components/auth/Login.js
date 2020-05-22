@@ -24,42 +24,37 @@ const Login = ({ login, isAuthenticated }) => {
     return <Redirect to='/dashboard' />;
   }
   return (
-    <section className='landing'>
-      <div className='dark-overlay'>
-        <div className='page-inner'>
-          <Link className='btn btn-primary btn-back' to='/'>
-            Powrót
-          </Link>
-          <h1 className='large'>Zaloguj się</h1>
-          <form className='form' onSubmit={(e) => onSubmit(e)}>
-            <div className='form-group'>
-              <input
-                type='email'
-                placeholder='Adres Email'
-                name='email'
-                value={email}
-                onChange={(e) => onChange(e)}
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='password'
-                placeholder='Hasło'
-                name='password'
-                value={password}
-                onChange={(e) => onChange(e)}
-              />
-            </div>
+    <section className='login'>
+      <div className='login-inner'>
+        <h1 className='large'>Zaloguj się</h1>
+        <form className='form' onSubmit={(e) => onSubmit(e)}>
+          <div className='form-group'>
             <input
-              type='submit'
-              className='btn btn-primary btn-block'
-              value='Zaloguj'
+              type='email'
+              placeholder='Adres Email'
+              name='email'
+              value={email}
+              onChange={(e) => onChange(e)}
             />
-          </form>
-          <p className='margin-y-1'>
-            Nie posiadasz konta? <Link to='/register'>Zarejestruj się</Link>
-          </p>
-        </div>
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
+              placeholder='Hasło'
+              name='password'
+              value={password}
+              onChange={(e) => onChange(e)}
+            />
+          </div>
+          <input
+            type='submit'
+            className='btn btn-primary btn-block'
+            value='Zaloguj'
+          />
+        </form>
+        <p className='margin-y-1'>
+          Nie posiadasz konta? <Link to='/register'>Zarejestruj się</Link>
+        </p>
       </div>
     </section>
   );

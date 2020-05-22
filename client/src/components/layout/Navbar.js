@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
 import {
   Home,
   Users,
@@ -11,9 +10,10 @@ import {
   PlusCircle,
   LogIn,
   UserPlus,
+  HelpCircle,
 } from 'react-feather';
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navbar = ({ auth: { isAuthenticated, loading } }) => {
   const authLinks = (
     <ul>
       <li>
@@ -46,13 +46,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link className='nav-item' to='/register'>
-          <UserPlus /> Załóż Konto
+        <Link className='nav-item' to='/instructions'>
+          <HelpCircle /> Jak używać
         </Link>
       </li>
       <li>
-        <Link className='nav-item' to='/login'>
-          <LogIn /> Zaloguj
+        <Link className='nav-item' to='/register'>
+          <UserPlus /> Załóż Konto
         </Link>
       </li>
     </ul>
@@ -73,7 +73,6 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 };
 
 Navbar.propTypes = {
-  logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
@@ -81,4 +80,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, {})(Navbar);

@@ -71,6 +71,11 @@ body {
   border-radius: 0.5rem;
 }
 
+.btn-instructions {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
 .btn-dashboard {
   font-size: 1.5rem;
   font-weight: 700;
@@ -328,6 +333,15 @@ a {
   height: 100%;
 }
 
+.dark-overlay-intructions {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .container {
   position: absolute;
   top: 0;
@@ -353,6 +367,78 @@ a {
   height: 100vh;
 }
 
+.landing-inner {
+  color: #fff;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  width: 300px;
+}
+
+.login {
+  width: 40vw;
+}
+
+.login-inner {
+  color: #fff;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 810px) {
+  .landing-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .logo {
+    width: 200px;
+  }
+
+  .landing-large {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .login {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 410px) {
+  .landing-large {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo {
+    width: 120px;
+  }
+  .login {
+    margin: 0;
+  }
+}
+
 .instructions {
   background: url('./img/landing.jpg') no-repeat center center/cover;
   height: 100vh;
@@ -371,7 +457,43 @@ a {
 .instructions-box {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.instructions-text {
+  text-align: justify;
+  margin: 1rem;
+}
+.instructions-header {
+  text-align: center;
+  margin: 1rem;
+}
+
+.img-instructions {
+  width: 40vw;
+  padding: 2rem;
+}
+
+@media (max-width: 1100px) {
+  .img-instructions {
+    width: 60vw;
+  }
+}
+@media (max-width: 800px) {
+  .img-instructions {
+    width: 70vw;
+    padding: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .img-instructions {
+    width: 80vw;
+  }
+}
+@media (max-width: 500px) {
+  .img-instructions {
+    width: 90vw;
+  }
 }
 
 .dashboard {
@@ -522,4 +644,31 @@ a {
 .form input[type='submit'],
 button {
   font: inherit;
+}
+
+@media (max-width: 350px) {
+  .form .form-group {
+    margin: 1rem 0;
+  }
+
+  .form .form-text {
+    display: block;
+    margin-top: 0.2rem;
+    color: #888;
+  }
+
+  .form input[type='text'],
+  .form input[type='email'],
+  .form input[type='password'],
+  .form input[type='date'],
+  .form input[type='number'],
+  .form select,
+  .form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+  }
 }
