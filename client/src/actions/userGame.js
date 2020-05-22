@@ -83,7 +83,7 @@ export const addUserGameFromGames = (id) => async (dispatch) => {
       payload: res.data,
     });
 
-    dispatch(setAlert(`Dodano Grę do ulubionych}`, 'success'));
+    dispatch(setAlert(`Dodano Grę ${res.data.title} do ulubionych`, 'success'));
   } catch (err) {
     dispatch({
       type: USER_GAME_ERROR,

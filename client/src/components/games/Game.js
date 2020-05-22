@@ -16,9 +16,9 @@ const Game = ({
     getGame(match.params.id);
   }, [getGame, match.params.id]);
 
-  // const onClick = async (e) => {
-  //   addUserGameFromGames(game.game);
-  // };
+  const onClick = async (e) => {
+    addUserGameFromGames(game._id);
+  };
   return loading ? (
     <Spinner />
   ) : game === null ? (
@@ -47,14 +47,14 @@ const Game = ({
             </p>
             <p>Gra od {game.minAge} lat.</p>
           </div>
-          {/* <button
+          <button
             onClick={(e) => onClick(e)}
             type='button'
             className='btn btn-primary'
             style={{ height: '2.5rem' }}
           >
             Dodaj do ulubionych
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

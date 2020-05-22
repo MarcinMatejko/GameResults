@@ -8,7 +8,6 @@ import {
   Clipboard,
   Heart,
   PlusCircle,
-  LogIn,
   UserPlus,
   HelpCircle,
 } from 'react-feather';
@@ -40,19 +39,24 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
           Nowy Wynik
         </Link>
       </li>
+      <li>
+        <Link className='nav-item' to='/instructions'>
+          <HelpCircle /> Jak używać
+        </Link>
+      </li>
     </ul>
   );
 
   const guestLinks = (
     <ul>
       <li>
-        <Link className='nav-item' to='/instructions'>
-          <HelpCircle /> Jak używać
+        <Link className='nav-item' to='/register'>
+          <UserPlus /> Załóż Konto
         </Link>
       </li>
       <li>
-        <Link className='nav-item' to='/register'>
-          <UserPlus /> Załóż Konto
+        <Link className='nav-item' to='/instructions'>
+          <HelpCircle /> Jak używać
         </Link>
       </li>
     </ul>

@@ -251,13 +251,19 @@ body {
   text-align: center;
   width: 6rem;
 }
+@media (max-width: 640px) {
+  .nav-item {
+    font-size: 0.6rem;
+    width: 5rem;
+  }
+}
 
 @media (max-width: 520px) {
   .navbar {
     padding: 0.5rem 0.5rem;
   }
   .nav-item {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     width: 3.9rem;
   }
   .navbar ul li {
@@ -266,7 +272,21 @@ body {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0.5rem 0.5rem;
+  }
+  .nav-item {
+    font-size: 0.6rem;
+    width: 3.7rem;
+  }
+  .navbar ul li {
+    padding: 0 0.1rem;
+    list-style: none;
+  }
+}
+
+@media (max-width: 380px) {
   .navbar {
     padding: 0.5rem 0.5rem;
   }
