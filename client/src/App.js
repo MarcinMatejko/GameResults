@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
+import NewResult from './components/layout/NewResult';
 import Dashboard from './components/dashboard/Dashboard';
 import Players from './components/players/Players';
 import Games from './components/games/Games';
@@ -50,6 +51,7 @@ const App = () => {
               <PrivateRoute exact path='/games/:id' component={Game} />
               <PrivateRoute exact path='/user-games/:id' component={UserGame} />
               <PrivateRoute exact path='/add-game' component={GameForm} />
+              <PrivateRoute exact path='/new-result' component={NewResult} />
               <PrivateRoute
                 exact
                 path='/add-user-game'

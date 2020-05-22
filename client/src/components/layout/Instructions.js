@@ -66,7 +66,8 @@ const Instructions = ({ auth: { isAuthenticated, loading } }) => {
                 wynik chciałbyś zapisać, dodaj ją do ulubionych. Potem z
                 ulubionych gier będziesz wybierał tytuły do których będziesz
                 zapisywać wyniki. Jeżeli nie znalazłeś Gry której szukasz, nic
-                się nie stało. Przejdź do kroku 3.{' '}
+                się nie stało, przejdź do kroku 3. Lista dostępnych gier jest
+                sukcesywnie powiększana.{' '}
                 <Link className='btn-instructions' to='/games'>
                   Lista Gier.
                 </Link>
@@ -100,7 +101,7 @@ const Instructions = ({ auth: { isAuthenticated, loading } }) => {
                 następnie dodaj graczy którzy grali i każdemu przypisz ile
                 punktów uzyskał w danej rozgrywce, wybierz gracza który wygrał,
                 a następnie zapisz wynik gry.{' '}
-                <Link className='btn-instructions' to='/games'>
+                <Link className='btn-instructions' to='/new-result'>
                   Dodaj wynik gry.
                 </Link>
               </p>

@@ -34,7 +34,7 @@ const Navbar = ({ auth: { isAuthenticated, loading } }) => {
         </Link>
       </li>
       <li>
-        <Link className='nav-item' to='/user-games'>
+        <Link className='nav-item' to='/new-result'>
           <PlusCircle />
           Nowy Wynik
         </Link>

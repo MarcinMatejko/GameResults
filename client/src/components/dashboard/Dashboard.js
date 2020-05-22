@@ -44,7 +44,7 @@ const Dashboard = ({
           <Link to='/user-games' className='btn btn-dashboard'>
             Moje Gry
           </Link>
-          <Link to='/user-games' className='btn btn-dashboard'>
+          <Link to='/new-result' className='btn btn-dashboard'>
             Nowy Wynik Gry
           </Link>
           <Link to='/instructions' className='btn btn-dashboard mb-6'>
