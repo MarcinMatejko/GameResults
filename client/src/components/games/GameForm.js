@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addGame } from '../../actions/game';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const GameForm = ({ addGame, isCreated }) => {
   const [formData, setFormData] = useState({
@@ -29,9 +29,6 @@ const GameForm = ({ addGame, isCreated }) => {
     <section className='games'>
       <div className='dark-overlay'>
         <div className='games-inner'>
-          <Link className='btn btn-primary btn-back' to='/games'>
-            Powrót
-          </Link>
           <h3 className='large mt-4'>Dodaj nową grę</h3>
           <form className='form' onSubmit={(e) => onSubmit(e)}>
             <div className='form-group'>

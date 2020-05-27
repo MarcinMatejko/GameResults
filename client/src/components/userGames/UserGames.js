@@ -16,9 +16,6 @@ const UserGames = ({ getUserGames, userGame: { userGames, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='games-inner'>
-            <Link className='btn btn-primary btn-back' to='/'>
-              Powrót
-            </Link>
             <h1 className='large mt-4'>Lista twoich ulubionych gier</h1>
             {loading ? (
               <Spinner />

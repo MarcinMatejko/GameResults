@@ -46,7 +46,7 @@ const PlayerForm = ({ addPlayer }) => {
         <div className='form-group'>
           <label>
             <select value={color} name='color' onChange={(e) => onChange(e)}>
-              <option value='#003c8f'>Kolor Gracza:</option>
+              <option value=''>Kolor Gracza:</option>
               <option value='#003c8f'>niebieski</option>
               <option value='#005005'>zielony</option>
               <option value='#ffea00'>żółty</option>

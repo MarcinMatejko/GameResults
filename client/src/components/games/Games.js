@@ -16,14 +16,11 @@ const Games = ({ getGames, game: { games, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='games-inner'>
-            <Link className='btn btn-primary btn-back' to='/'>
-              Powrót
-            </Link>
             <h1 className='x-large mt-4'>Lista gier</h1>
             {loading ? (
               <Spinner />
             ) : (
-              <div className='games-box'>
+              <div className='games-box mb-6'>
                 {games.map((game) => (
                   <div key={game._id}>
                     <Link to={`/games/${game._id}`} className='game-item'>
@@ -34,9 +31,9 @@ const Games = ({ getGames, game: { games, loading } }) => {
               </div>
             )}
 
-            <Link className='btn btn-primary btn-add-game mb-6' to='add-game'>
+            {/* <Link className='btn btn-primary btn-add-game mb-6' to='add-game'>
               Dodaj nową Grę
-            </Link>
+            </Link> */}
           </div>
         </Scroll>
       </div>

@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PlayerItem from './PlayerItem';
@@ -18,9 +17,6 @@ const Players = ({ getPlayers, player: { players, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='players-inner'>
-            <Link className='btn btn-primary btn-back' to='/'>
-              Powrót
-            </Link>
             <h1 className='x-large mt-4'>Gracze</h1>
             {loading ? (
               <Spinner />

@@ -29,7 +29,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm('Jesteś pewny? Tego kroku NIE MOŻNA cofnąć!')) {
     try {
-      const res = await axios.delete('/api/users');
+      await axios.delete('/api/users');
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });

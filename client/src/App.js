@@ -23,6 +23,7 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import Scroll from './components/layout/Scroll';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -36,30 +37,36 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Fragment>
-          <section className='container'>
-            <Route exact path='/' component={Landing} />
-            <Alert />
-            <Switch>
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/instructions' component={Instructions} />
-              <PrivateRoute exact path='/dashboard' component={Dashboard} />
+          <Scroll>
+            <section className='container'>
+              <Route exact path='/' component={Landing} />
+              <Alert />
+              <Switch>
+                <Route exact path='/register' component={Register} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/instructions' component={Instructions} />
+                <PrivateRoute exact path='/dashboard' component={Dashboard} />
 
-              <PrivateRoute exact path='/players' component={Players} />
-              <PrivateRoute exact path='/games' component={Games} />
-              <PrivateRoute exact path='/user-games' component={UserGames} />
-              <PrivateRoute exact path='/games/:id' component={Game} />
-              <PrivateRoute exact path='/user-games/:id' component={UserGame} />
-              <PrivateRoute exact path='/add-game' component={GameForm} />
-              <PrivateRoute exact path='/new-result' component={NewResult} />
-              <PrivateRoute
-                exact
-                path='/add-user-game'
-                component={UserGameForm}
-              />
-            </Switch>
-          </section>
-          <Navbar />
+                <PrivateRoute exact path='/players' component={Players} />
+                <PrivateRoute exact path='/games' component={Games} />
+                <PrivateRoute exact path='/user-games' component={UserGames} />
+                <PrivateRoute exact path='/games/:id' component={Game} />
+                <PrivateRoute
+                  exact
+                  path='/user-games/:id'
+                  component={UserGame}
+                />
+                <PrivateRoute exact path='/add-game' component={GameForm} />
+                <PrivateRoute exact path='/new-result' component={NewResult} />
+                <PrivateRoute
+                  exact
+                  path='/add-user-game'
+                  component={UserGameForm}
+                />
+              </Switch>
+            </section>
+            <Navbar />
+          </Scroll>
         </Fragment>
       </Router>
     </Provider>

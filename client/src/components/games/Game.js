@@ -37,9 +37,6 @@ const Game = ({
     <div className='game'>
       <div className='dark-overlay'>
         <div className='game-info'>
-          <Link className='btn btn-primary btn-back' to='/games'>
-            Powrót
-          </Link>
           <div>
             <h3>{game.title}</h3>
             <p>
