@@ -44,14 +44,16 @@ const Game = ({
             </p>
             <p>Gra od {game.minAge} lat.</p>
           </div>
-          <button
-            onClick={(e) => onClick(e)}
-            type='button'
-            className='btn btn-primary'
-            style={{ height: '2.5rem' }}
-          >
-            Dodaj do ulubionych
-          </button>
+          <div className='game-buttons'>
+            <button
+              onClick={(e) => onClick(e)}
+              type='button'
+              className='btn btn-primary'
+              style={{ height: '2.5rem' }}
+            >
+              Dodaj do ulubionych
+            </button>
+          </div>
         </div>
       </div>
     </div>

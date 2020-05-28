@@ -645,6 +645,17 @@ a {
   margin: 0;
 }
 
+@media (max-width: 350px) {
+  .game-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .game-buttons {
+    margin-top: 1rem;
+  }
+}
+
 /* Forms */
 .form .form-group {
   margin: 1.2rem 0;
