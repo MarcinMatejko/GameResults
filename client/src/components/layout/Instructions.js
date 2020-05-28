@@ -14,7 +14,7 @@ const Instructions = ({ auth: { isAuthenticated, loading } }) => {
       <div className='dark-overlay-intructions'>
         <Scroll>
           <div className='instructions-inner'>
-            <h1 className='x-large text-center mt-4'>Jak używać Punktatora</h1>
+            <h1 className='large text-center mt-4'>Jak używać Punktatora</h1>
             <div className='instructions-box'>
               {!loading && (
                 <Fragment>

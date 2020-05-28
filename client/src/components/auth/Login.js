@@ -52,7 +52,7 @@ const Login = ({ login, isAuthenticated }) => {
             value='Zaloguj'
           />
         </form>
-        <p className='margin-y-1'>
+        <p className='margin-y-1 link mb-6'>
           Nie posiadasz konta? <Link to='/register'>Zarejestruj się</Link>
         </p>
       </div>

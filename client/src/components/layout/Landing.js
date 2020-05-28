@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Login from '../auth/Login';
 import logo from '../../img/logo.png';
+import Scroll from './Scroll';
 
 const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -13,19 +14,21 @@ const Landing = ({ isAuthenticated }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='landing-inner'>
-          <div className='landing-left'>
-            <img src={logo} alt='logo' className='logo' />
+        <Scroll>
+          <div className='landing-inner'>
+            <div className='landing-left'>
+              <img src={logo} alt='logo' className='logo mt-1' />
 
-            <p className='large landing-large'>
-              Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp zawsze
-              i wszędzie
-            </p>
+              <p className='large landing-large'>
+                Zapisuj wyniki swoich ulubionych gier i miej do nich dostęp
+                zawsze i wszędzie
+              </p>
+            </div>
+            <div className='landing-right'>
+              <Login />
+            </div>
           </div>
-          <div className='landing-right'>
-            <Login />
-          </div>
-        </div>
+        </Scroll>
       </div>
     </section>
   );

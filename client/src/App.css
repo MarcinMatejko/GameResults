@@ -384,7 +384,7 @@ a {
 
 .page-inner {
   color: #fff;
-  height: 100%;
+  /* height: 100%; */
   width: 80%;
   margin: auto;
   display: flex;
@@ -401,7 +401,7 @@ a {
 
 .landing-inner {
   color: #fff;
-  height: 100%;
+  /* height: 100%; */
   width: 80%;
   margin: auto;
   display: flex;
@@ -421,7 +421,7 @@ a {
 
 .login-inner {
   color: #fff;
-  height: 100%;
+  /* height: 100%; */
   width: 90%;
   margin: auto;
   display: flex;
@@ -429,6 +429,10 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.link a {
+  color: var(--light-color);
 }
 
 @media (max-width: 810px) {
@@ -531,12 +535,6 @@ a {
 .dashboard {
   background: url('./img/dashboard.jpg') no-repeat center center/cover;
   height: 100vh;
-}
-
-@media (max-width: 360px) {
-  .dashboard-h1 {
-    margin-top: 3rem;
-  }
 }
 
 .players {

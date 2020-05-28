@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 import { Settings } from 'react-feather';
+import Scroll from '../layout/Scroll';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -20,27 +21,29 @@ const Dashboard = ({
   ) : (
     <section className='dashboard'>
       <div className='dark-overlay'>
-        <div className='page-inner'>
-          <Link to='/settings' className='btn btn-dark btn-settings-icon'>
-            <Settings size={30} />
-          </Link>
-          <h1 className='large dashboard-h1'>Cześć {user && user.name}</h1>
-          <Link to='/players' className='btn btn-dashboard'>
-            Lista Graczy
-          </Link>
-          <Link to='/games' className='btn btn-dashboard'>
-            Lista Gier
-          </Link>
-          <Link to='/user-games' className='btn btn-dashboard'>
-            Moje Gry
-          </Link>
-          <Link to='/new-result' className='btn btn-dashboard'>
-            Nowy Wynik Gry
-          </Link>
-          <Link to='/instructions' className='btn btn-dashboard mb-6'>
-            Jak korzystać?
-          </Link>
-        </div>
+        <Scroll>
+          <div className='page-inner'>
+            <Link to='/settings' className='btn btn-dark btn-settings-icon'>
+              <Settings size={30} />
+            </Link>
+            <h1 className='large mt-4'>Cześć {user && user.name}</h1>
+            <Link to='/players' className='btn btn-dashboard'>
+              Lista Graczy
+            </Link>
+            <Link to='/games' className='btn btn-dashboard'>
+              Lista Gier
+            </Link>
+            <Link to='/user-games' className='btn btn-dashboard'>
+              Moje Gry
+            </Link>
+            <Link to='/new-result' className='btn btn-dashboard'>
+              Nowy Wynik Gry
+            </Link>
+            <Link to='/instructions' className='btn btn-dashboard mb-6'>
+              Jak korzystać?
+            </Link>
+          </div>
+        </Scroll>
       </div>
     </section>
   );

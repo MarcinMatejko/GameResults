@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addUserGame } from '../../actions/userGame';
 import { Redirect } from 'react-router-dom';
+import Scroll from '../layout/Scroll';
 
 const UserGameForm = ({ addUserGame, isCreated }) => {
   const [formData, setFormData] = useState({
@@ -28,57 +29,59 @@ const UserGameForm = ({ addUserGame, isCreated }) => {
   return (
     <section className='games'>
       <div className='dark-overlay'>
-        <div className='games-inner'>
-          <h3 className='large mt-4'>Dodaj nową grę</h3>
-          <form className='form mb-6' onSubmit={(e) => onSubmit(e)}>
-            <div className='form-group'>
+        <Scroll>
+          <div className='games-inner'>
+            <h3 className='large mt-4'>Dodaj nową grę</h3>
+            <form className='form mb-6' onSubmit={(e) => onSubmit(e)}>
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Tytuł Gry'
+                  name='title'
+                  value={title}
+                  onChange={(e) => onChange(e)}
+                  // required
+                />
+              </div>
+              <div className='form-group'>
+                <input
+                  type='number'
+                  placeholder='Minimalny liczba Graczy'
+                  name='minPlayers'
+                  value={minPlayers}
+                  onChange={(e) => onChange(e)}
+                  // required
+                />
+              </div>
+              <div className='form-group'>
+                <input
+                  type='number'
+                  placeholder='Maksymalny liczba Graczy'
+                  name='maxPlayers'
+                  value={maxPlayers}
+                  onChange={(e) => onChange(e)}
+                  // required
+                />
+              </div>
+              <div className='form-group'>
+                <input
+                  type='number'
+                  placeholder='Minimalny wiek gracza'
+                  name='minAge'
+                  value={minAge}
+                  onChange={(e) => onChange(e)}
+                  // required
+                />
+              </div>
               <input
-                type='text'
-                placeholder='Tytuł Gry'
-                name='title'
-                value={title}
-                onChange={(e) => onChange(e)}
-                // required
+                style={{ margin: '1rem 0' }}
+                type='submit'
+                className='btn btn-primary btn-block'
+                value='Dodaj Grę'
               />
-            </div>
-            <div className='form-group'>
-              <input
-                type='number'
-                placeholder='Minimalny liczba Graczy'
-                name='minPlayers'
-                value={minPlayers}
-                onChange={(e) => onChange(e)}
-                // required
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='number'
-                placeholder='Maksymalny liczba Graczy'
-                name='maxPlayers'
-                value={maxPlayers}
-                onChange={(e) => onChange(e)}
-                // required
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='number'
-                placeholder='Minimalny wiek gracza'
-                name='minAge'
-                value={minAge}
-                onChange={(e) => onChange(e)}
-                // required
-              />
-            </div>
-            <input
-              style={{ margin: '1rem 0' }}
-              type='submit'
-              className='btn btn-primary btn-block'
-              value='Dodaj Grę'
-            />
-          </form>
-        </div>
+            </form>
+          </div>
+        </Scroll>
       </div>
     </section>
   );

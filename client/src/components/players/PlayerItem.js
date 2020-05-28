@@ -18,7 +18,7 @@ const PlayerItem = ({
           backgroundColor: `${color}`,
           border: '1px solid black',
           height: '1rem',
-          width: '100%',
+          width: '20vw',
         }}
       ></div>
       <p>Wiek: {age}</p>

@@ -126,7 +126,17 @@ router.delete('/', auth, async (req, res) => {
 
 router.post(
   '/players',
-  [auth, [check('playerName', 'Imię gracza jest wymagane').not().isEmpty()]],
+  [
+    auth,
+    [
+      check('playerName', 'Imię gracza jest wymagane, masymalnie 15 znaków.')
+        .not()
+        .isEmpty()
+        .isLength({
+          max: 15,
+        }),
+    ],
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

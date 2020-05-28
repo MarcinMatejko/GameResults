@@ -30,6 +30,8 @@ const PlayerForm = ({ addPlayer }) => {
             placeholder='Imię gracza'
             name='playerName'
             value={playerName}
+            required
+            maxLength={15}
             onChange={(e) => onChange(e)}
           />
         </div>
@@ -39,13 +41,19 @@ const PlayerForm = ({ addPlayer }) => {
             placeholder='Wiek gracza'
             name='age'
             value={age}
+            required
             onChange={(e) => onChange(e)}
           />
         </div>
 
         <div className='form-group'>
           <label>
-            <select value={color} name='color' onChange={(e) => onChange(e)}>
+            <select
+              value={color}
+              name='color'
+              required
+              onChange={(e) => onChange(e)}
+            >
               <option value=''>Kolor Gracza:</option>
               <option value='#003c8f'>niebieski</option>
               <option value='#005005'>zielony</option>

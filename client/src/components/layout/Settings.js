@@ -5,32 +5,38 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 import { LogOut, UserX, Edit } from 'react-feather';
 import { deleteAccount } from '../../actions/profile';
+import Scroll from './Scroll';
 
 const Settings = ({ deleteAccount, auth: { user }, logout }) => {
   return (
     <section className='landing'>
       <div className='dark-overlay'>
-        <div className='page-inner'>
-          <h1 className='x-large'>Ustawienia</h1>
-          <Link onClick={logout} to='/' className='btn btn-settings'>
-            Wyloguj
-            <LogOut className='margin-r-1' size={20} />
-          </Link>
-          <button className='btn btn-settings' onClick={() => deleteAccount()}>
-            Usuń kotno
-            <UserX className='margin-r-1' size={20} />
-          </button>
+        <Scroll>
+          <div className='page-inner'>
+            <h1 className='large mt-4'>Ustawienia</h1>
+            <Link onClick={logout} to='/' className='btn btn-settings'>
+              Wyloguj
+              <LogOut className='margin-r-1' size={20} />
+            </Link>
+            <button
+              className='btn btn-settings'
+              onClick={() => deleteAccount()}
+            >
+              Usuń kotno
+              <UserX className='margin-r-1' size={20} />
+            </button>
 
-          <a
-            href='https://marcinmatejko.pl'
-            target='_blank'
-            rel='noopener'
-            className='btn btn-settings'
-          >
-            Autor: Marcin Matejko
-            <Edit className='margin-r-1' size={20} />
-          </a>
-        </div>
+            <a
+              href='https://marcinmatejko.pl'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn btn-settings mb-6'
+            >
+              Autor: Marcin Matejko
+              <Edit className='margin-r-1' size={20} />
+            </a>
+          </div>
+        </Scroll>
       </div>
     </section>
   );
