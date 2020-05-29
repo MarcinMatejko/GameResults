@@ -17,7 +17,7 @@ const Players = ({ getPlayers, player: { players, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='players-inner'>
-            <h1 className='x-large mt-4'>Gracze</h1>
+            <h1 className='large mt-4'>Gracze</h1>
             {loading ? (
               <Spinner />
             ) : (

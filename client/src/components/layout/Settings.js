@@ -22,7 +22,7 @@ const Settings = ({ deleteAccount, auth: { user }, logout }) => {
               className='btn btn-settings'
               onClick={() => deleteAccount()}
             >
-              Usuń kotno
+              Usuń konto
               <UserX className='margin-r-1' size={20} />
             </button>
 

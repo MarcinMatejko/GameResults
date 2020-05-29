@@ -37,7 +37,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='page-inner'>
-            <h1 className='large dashboard-h1'>Zarejestruj się</h1>
+            <h1 className='large mt-4'>Zarejestruj się</h1>
             <p className='lead'>
               Załóż darmowe konto, aby móc korzystać z serwisu.
             </p>

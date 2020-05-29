@@ -16,7 +16,7 @@ const Games = ({ getGames, game: { games, loading } }) => {
       <div className='dark-overlay'>
         <Scroll>
           <div className='games-inner'>
-            <h1 className='x-large mt-4'>Lista gier</h1>
+            <h1 className='large mt-4'>Lista gier</h1>
             {loading ? (
               <Spinner />
             ) : (

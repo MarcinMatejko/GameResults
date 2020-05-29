@@ -103,10 +103,7 @@ const Instructions = ({ auth: { isAuthenticated, loading } }) => {
                 </Link>
               </p>
             </div>
-            <Link
-              className='btn btn-primary btn-add-game mb-6 text-center'
-              to='/'
-            >
+            <Link className='btn btn-primary mb-6 text-center' to='/'>
               Zacznij używać Punktatora
             </Link>
           </div>
